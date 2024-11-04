@@ -15,4 +15,5 @@ function draw() {
   for(i = 0;i<w.length;i++){
     w[i].display();
   }
+  wallCollision()
 }
