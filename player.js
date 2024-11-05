@@ -11,6 +11,8 @@ function Player(x,y,w,h,img,col){
     fill(this.col)
     rect(this.x, this.y, this.w, this.h)
   }//end display
+  
+  
   this.update = function(){
     if(keyIsDown(37)){
       p.x -= this.speed;
