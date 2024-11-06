@@ -5,7 +5,7 @@ let w = []
 function setup() {
   createCanvas(400, 400);
   p = new Player(200,200,10,10,"","red")
-  room1();
+  room2();
 }
 
 function draw() {
@@ -15,5 +15,6 @@ function draw() {
   for(i = 0;i<w.length;i++){
     w[i].display();
   }
-  wallCollision()
+  //wallCollision()
+  screenChange()
 }
