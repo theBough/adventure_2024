@@ -28,3 +28,13 @@ function Player(x,y,w,h,img,col){
     }
   }
 }//end player
+
+function screenChange(){
+  if(p.x < 0){
+    //this means the player just touched the left edge of the 
+    //canvas
+    
+    //place the player on the right side
+    p.x = width -p.w
+  }//end if
+}//end screenChange
