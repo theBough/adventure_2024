@@ -37,4 +37,18 @@ function screenChange(){
     //place the player on the right side
     p.x = width -p.w
   }//end if
+  
+   if(p.x > width){
+    //this means the player just touched the right edge of the 
+    //canvas
+    
+    //place the player on the left side
+    p.x = 0
+  }//end if
+   if(p.y > height){
+    p.y = 0
+  }//end if
+   if(p.y < 0){
+    p.y = height - p.h
+  }//end if
 }//end screenChange
