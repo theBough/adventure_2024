@@ -1,11 +1,11 @@
-let p 
+let p ;
 //we are making an array that will hold the walls
-let w = []
+let w = [];
 //these two variables handle where the player is on the grid
 let activeRow, activeColumn;
 //hold on the rooms
-let rooms =[]
-
+let rooms =[];
+let k;
 
 function setup() {
   createCanvas(400, 400);
@@ -13,7 +13,8 @@ function setup() {
   // we are starting in room 0, 0 (is the top left room of the grid)
   //you can change this if you like
   activeRow = 0;
-  activeColumn = 0
+  activeColumn = 0;
+  k = new Key(30,30,10,10,"key/adventure.webp",rooms[0][0],true)
 }
 
 function draw() {
@@ -21,9 +22,11 @@ function draw() {
   p.display();
   p.update();
   for(i = 0;i<w.length;i++){
+    noStroke()
     w[i].display();
   }
   //wallCollision()
   screenChange()
   rooms[activeRow][activeColumn].call()
+  k.display()
 }
