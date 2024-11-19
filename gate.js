@@ -11,29 +11,29 @@ function Gate(x,y,w,h,col,room, show){
     fill(this.col)
     rect(this.x, this.y, this.w, this.h)
   }//end display
-}
+}//end Gate
 function gateCollision() {
-  for (var i = 0; i < w.length; i++) {
+  
 
     //check if we hit the left of any wall
-    if (p.y <= w[i].y + w[i].h && p.y + p.h >= w[i].y && p.x <= w[i].x + w[i].w && p.x >= w[i].x) {
+    if (p.y <= g.y + g.h && p.y + p.h >= g.y && p.x <= g.x + g.w && p.x >= g.x) {
       p.x += 5
     }
 
     //check if we hit the right of any wall
-    if (p.y <= w[i].y + w[i].h && p.y + p.h >= w[i].y && p.x + p.w >= w[i].x && p.x <= w[i].x + w[i].w) {
+    if (p.y <= g.y + g.h && p.y + p.h >= g.y && p.x + p.w >= g.x && p.x <= g.x + g.w) {
       p.x -= 5
     }
 
 
-    if (p.x <= w[i].x + w[i].w && p.x + p.w >= w[i].x && p.y <= w[i].y + w[i].h && p.y >= w[i].y) {
+    if (p.x <= g.x + g.w && p.x + p.w >= g.x && p.y <= g.y + g.h && p.y >= g.y) {
       p.y += 5;
     }
 
     //check if we hit the top of any wall
-    if (p.x <= w[i].x + w[i].w && p.x + p.w >= w[i].x && p.y + p.h >= w[i].y && p.y <= w[i].y + w[i].h) {
+    if (p.x <= g.x + g.w && p.x + p.w >= g.x && p.y + p.h >= g.y && p.y <= g.y + g.h) {
       p.y -= 5;
     }
 
-  }//end loop
+
 }//end colision
