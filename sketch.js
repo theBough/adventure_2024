@@ -6,6 +6,7 @@ let activeRow, activeColumn;
 //hold on the rooms
 let rooms =[];
 let k;
+let g
 
 function setup() {
   createCanvas(400, 400);
@@ -15,6 +16,7 @@ function setup() {
   activeRow = 0;
   activeColumn = 0;
   k = new Key(30,30,10,10,"key/adventure.webp",rooms[0][0],true)
+  g = new Gate(100,100,50,10,"brown",rooms[0][0],true)
 }
 
 function draw() {
@@ -29,4 +31,5 @@ function draw() {
   screenChange()
   rooms[activeRow][activeColumn].call()
   k.display()
+  g.display();
 }
