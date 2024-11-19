@@ -8,8 +8,11 @@ function Gate(x,y,w,h,col,room, show){
   this.show =true
   
   this.display = function(){
-    fill(this.col)
-    rect(this.x, this.y, this.w, this.h)
+    if(rooms[activeRow][activeColumn] == this.room  && this.show){
+      fill(this.col)
+      rect(this.x, this.y, this.w, this.h)
+    }
+    
   }//end display
 }//end Gate
 function gateCollision() {
