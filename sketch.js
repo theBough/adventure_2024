@@ -32,4 +32,5 @@ function draw() {
   rooms[activeRow][activeColumn].call()
   k.display()
   g.display();
+  keyCollision();
 }
