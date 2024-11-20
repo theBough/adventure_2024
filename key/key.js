@@ -21,3 +21,28 @@ function Key(x, y, w, h, img, room,show) {
      }//end if
   }; //end display
 }
+
+function keyCollision() {
+  
+
+    //check if we hit the left of any wall
+    if (p.y <= k.y + k.h && p.y + p.h >= k.y && p.x <= k.x + k.w && p.x >= k.x) {
+     k.aquired = true;
+    }
+
+    //check if we hit the right of any wall
+    if (p.y <= k.y + k.h && p.y + p.h >= k.y && p.x + p.w >= k.x && p.x <= k.x + k.w) {
+      k.aquired = true;
+    }
+
+
+    if (p.x <= k.x + k.w && p.x + p.w >= k.x && p.y <= k.y + k.h && p.y >= k.y) {
+      k.aquired = true;
+    }
+
+    //check if we hit the top of any wall
+    if (p.x <= k.x + k.w && p.x + p.w >= k.x && p.y + p.h >= k.y && p.y <= k.y + k.h) {
+      k.aquired = true;
+    }
+
+}//end colision
