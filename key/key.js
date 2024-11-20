@@ -12,6 +12,12 @@ function Key(x, y, w, h, img, room,show) {
     if(this.room == rooms[activeRow][activeColumn]){
       this.img.resize(this.w, this.h)
       image(this.img, this.x, this.y)
-    } 
+    }//end if
+     if(this.aquired){
+       this.x = p.x;
+       this.y = p.y;
+       this.img.resize(this.w, this.h)
+      image(this.img, this.x, this.y)
+     }//end if
   }; //end display
 }
