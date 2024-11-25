@@ -19,7 +19,6 @@ function gateCollision() {
 
     //check if we hit the left of any wall
   //if you don't want the key to disappear, remove:
-  //&& g.show
   //k.aquired = false;
   //k.show = false;
   //for all if statements
