@@ -7,6 +7,7 @@ let activeRow, activeColumn;
 let rooms =[];
 let k;
 let g
+let e;
 
 function setup() {
   createCanvas(400, 400);
@@ -17,6 +18,7 @@ function setup() {
   activeColumn = 0;
   k = new Key(30,30,10,10,"key/adventure.webp",rooms[0][0],true)
   g = new Gate(100,100,50,10,"brown",rooms[0][0],true)
+  e = new Enemy(50,50,10,10,"","white")
 }
 
 function draw() {
@@ -27,10 +29,13 @@ function draw() {
     noStroke()
     w[i].display();
   }
-  //wallCollision()
+  wallCollision()
   screenChange()
   rooms[activeRow][activeColumn].call()
   k.display()
   g.display();
+  e.display();
+  e.update();
   keyCollision();
+  gateCollision();
 }
