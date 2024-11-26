@@ -9,7 +9,8 @@ function Key(x, y, w, h, img, room,show) {
   this.aquired = false;
   
   this.display = function () {
-    if(this.room == rooms[activeRow][activeColumn]){
+    if(this.room == rooms[activeRow][activeColumn] && this.show){
+      /*if you dont want key to disappear, remove this.show*/
       this.img.resize(this.w, this.h)
       image(this.img, this.x, this.y)
     }//end if
@@ -26,22 +27,22 @@ function keyCollision() {
   
 
     //check if we hit the left of any wall
-    if (p.y <= k.y + k.h && p.y + p.h >= k.y && p.x <= k.x + k.w && p.x >= k.x) {
+    if (p.y <= k.y + k.h && p.y + p.h >= k.y && p.x <= k.x + k.w && p.x >= k.x && k.show) { //if you don't want key to disappear, remove && k.show for ALL if statements
      k.aquired = true;
     }
 
     //check if we hit the right of any wall
-    if (p.y <= k.y + k.h && p.y + p.h >= k.y && p.x + p.w >= k.x && p.x <= k.x + k.w) {
+    if (p.y <= k.y + k.h && p.y + p.h >= k.y && p.x + p.w >= k.x && p.x <= k.x + k.w && k.show) {
       k.aquired = true;
     }
 
 
-    if (p.x <= k.x + k.w && p.x + p.w >= k.x && p.y <= k.y + k.h && p.y >= k.y) {
+    if (p.x <= k.x + k.w && p.x + p.w >= k.x && p.y <= k.y + k.h && p.y >= k.y && k.show) {
       k.aquired = true;
     }
 
     //check if we hit the top of any wall
-    if (p.x <= k.x + k.w && p.x + p.w >= k.x && p.y + p.h >= k.y && p.y <= k.y + k.h) {
+    if (p.x <= k.x + k.w && p.x + p.w >= k.x && p.y + p.h >= k.y && p.y <= k.y + k.h && k.show) {
       k.aquired = true;
     }
 
