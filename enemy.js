@@ -1,10 +1,11 @@
-function Enemy(x, y, w, h, img, col) {
+function Enemy(x, y, w, h, img, col, type) {
   this.x = x;
   this.y = y;
   this.w = w;
   this.h = h;
   //this.img = loadImage(img)
   this.col = col;
+  this.type = type;
   this.speed = 1;
   this.distance = 100;
   this.traveled = 0;
@@ -15,16 +16,23 @@ function Enemy(x, y, w, h, img, col) {
     rect(this.x, this.y, this.w, this.h);
   }; //end display
 
+  
+  //add to update function if you want more enemy types
+  //do 'if(type == "name of enemy type")'
+  //       write enemy behaviour
   this.update = function () {
-    console.log(this.traveled);
-    if(this.traveled < this.distance){//if we have not traveled max distance
+    if(type == "horizontal"){//if enemy type is horizontal movement
+      if(this.traveled < this.distance){//if we have not traveled max distance
       this.x += this.direction*this.speed;//move in direction
       this.traveled += this.speed;//accumulate traveled
       } 
-    else if(this.traveled >= this.distance){//if we have traveled max distance
-      this.traveled = 0;//reset distance traveled
-      this.direction *= -1;//change direction
-    } //if we have traveled max distance
+      else if(this.traveled >= this.distance){//if we have traveled max distance
+        this.traveled = 0;//reset distance traveled
+        this.direction *= -1;//change direction
+      } //if we have traveled max distance
+    } else if(type == "follow"){
+      //covering next class
+    }
 
   }
 }//end enemy
