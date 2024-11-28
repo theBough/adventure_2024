@@ -6,6 +6,14 @@ function Player(x, y, w, h, img, col) {
   //this.img = loadImage(img)
   this.col = col;
   this.speed = 5;
+  this.health = 1;
+  
+  //check if player is alive
+  this.checkLive = function(){
+    if(this.health <= 0){ //if player is out of health
+      alive = false;
+    }
+  }
 
   this.display = function () {
     fill(this.col);
