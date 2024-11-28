@@ -67,21 +67,22 @@ function enemyCollision() {
 
     //check if we hit the left of any wall
     if (p.y <= e.y + e.h && p.y + p.h >= e.y && p.x <= e.x + e.w && p.x >= e.x && e.show) { //if you don't want key to disappear, remove && k.show for ALL if statements
-     k.aquired = true;
+     p.health -= e.damage;
     }
 
     //check if we hit the right of any wall
     if (p.y <= e.y + k.h && p.y + p.h >= e.y && p.x + p.w >= e.x && p.x <= e.x + e.w && e.show) {
+      p.health -= e.damage;
     }
 
 
     if (p.x <= e.x + e.w && p.x + p.w >= e.x && p.y <= e.y + e.h && p.y >= e.y && e.show) {
-
+      p.health -= e.damage;
     }
 
     //check if we hit the top of any wall
     if (p.x <= e.x + e.w && p.x + p.w >= e.x && p.y + p.h >= e.y && p.y <= e.y + e.h && e.show) {
-
+      p.health -= e.damage;
     }
 
 }//end colision
