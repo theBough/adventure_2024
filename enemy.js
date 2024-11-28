@@ -15,7 +15,7 @@ function Enemy(x, y, w, h, img, col, room,show,type) {
   this.damage = 1;
 
   this.display = function () {
-    if(this.show){
+    if(this.show && this.room == rooms[activeRow][activeColumn]){
      fill(this.col);
      rect(this.x, this.y, this.w, this.h);     
     }
@@ -66,22 +66,22 @@ function enemyCollision() {
   
 
     //check if we hit the left of any wall
-    if (p.y <= e.y + e.h && p.y + p.h >= e.y && p.x <= e.x + e.w && p.x >= e.x && e.show) { //if you don't want key to disappear, remove && k.show for ALL if statements
+    if (p.y <= e.y + e.h && p.y + p.h >= e.y && p.x <= e.x + e.w && p.x >= e.x && e.show && e.room == rooms[activeRow][activeColumn]) { //if you don't want key to disappear, remove && k.show for ALL if statements
      p.health -= e.damage;
     }
 
     //check if we hit the right of any wall
-    if (p.y <= e.y + k.h && p.y + p.h >= e.y && p.x + p.w >= e.x && p.x <= e.x + e.w && e.show) {
+    if (p.y <= e.y + k.h && p.y + p.h >= e.y && p.x + p.w >= e.x && p.x <= e.x + e.w && e.show && e.room == rooms[activeRow][activeColumn]) {
       p.health -= e.damage;
     }
 
 
-    if (p.x <= e.x + e.w && p.x + p.w >= e.x && p.y <= e.y + e.h && p.y >= e.y && e.show) {
+    if (p.x <= e.x + e.w && p.x + p.w >= e.x && p.y <= e.y + e.h && p.y >= e.y && e.show && e.room == rooms[activeRow][activeColumn]) {
       p.health -= e.damage;
     }
 
     //check if we hit the top of any wall
-    if (p.x <= e.x + e.w && p.x + p.w >= e.x && p.y + p.h >= e.y && p.y <= e.y + e.h && e.show) {
+    if (p.x <= e.x + e.w && p.x + p.w >= e.x && p.y + p.h >= e.y && p.y <= e.y + e.h && e.show && e.room == rooms[activeRow][activeColumn]) {
       p.health -= e.damage;
     }
 
