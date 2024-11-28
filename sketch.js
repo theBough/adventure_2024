@@ -8,6 +8,7 @@ let rooms =[];
 let k;
 let g
 let e;
+let alive = true;
 
 function setup() {
   createCanvas(400, 400);
@@ -18,13 +19,12 @@ function setup() {
   activeColumn = 0;
   k = new Key(30,30,10,10,"key/adventure.webp",rooms[0][0],true)
   g = new Gate(100,100,50,10,"brown",rooms[0][0],true)
-  e = new Enemy(50,50,10,10,"","white")
+  e = new Enemy(50,50,10,10,"","white",rooms[0][0], true, "follow")
 }
 
 function draw() {
   background(220);
   p.display();
-  p.update();
   for(i = 0;i<w.length;i++){
     noStroke()
     w[i].display();
@@ -35,7 +35,13 @@ function draw() {
   k.display()
   g.display();
   e.display();
-  e.update();
-  keyCollision();
-  gateCollision();
+  p.checkLive();
+  if(alive){
+    p.update();
+    e.update();
+    keyCollision();
+    gateCollision();
+    enemyCollision();
+  }
+
 }
